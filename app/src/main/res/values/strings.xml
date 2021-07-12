@@ -1,0 +1,6 @@
+<resources>
+    <string name="app_name">cathaypacific</string>
+    <string name="page_title">分頁%d</string>
+    <string name="item_index">項目%d</string>
+    <string name="item_date">%d/%d</string>
+</resources>
