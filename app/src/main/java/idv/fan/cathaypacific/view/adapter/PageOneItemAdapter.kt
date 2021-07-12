@@ -13,6 +13,7 @@ import idv.fan.cathaypacific.view.RecyclerListener
 
 class PageOneItemAdapter(val rvListener: RecyclerListener) :
     RecyclerView.Adapter<RecyclerView.ViewHolder>() {
+
     var mAlItem: List<ItemBean> = arrayListOf()
 
     override fun onCreateViewHolder(parent: ViewGroup, viewType: Int): RecyclerView.ViewHolder {

@@ -13,7 +13,7 @@ import idv.fan.cathaypacific.view.adapter.PageOneItemAdapter
 import idv.fan.cathaypacific.viewmodel.PageOneViewModel
 import kotlinx.android.synthetic.main.fragment_page_one.*
 
-class PageOneFragment : Fragment(), RecyclerListener {
+class PageOneFragment : BaseFragment(), RecyclerListener {
 
     companion object {
         @JvmStatic
@@ -34,18 +34,18 @@ class PageOneFragment : Fragment(), RecyclerListener {
         return binding?.root
     }
 
-    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
-        super.onViewCreated(view, savedInstanceState)
-        viewmodel?.let { viewmodel ->
-            rv_item.layoutManager = LinearLayoutManager(context)
-            if (itemItemAdapter == null) {
-                itemItemAdapter = PageOneItemAdapter(this)
-            }
-            rv_item.adapter = itemItemAdapter
-            viewmodel.alItem.observe(viewLifecycleOwner, {
-                itemItemAdapter?.mAlItem = Utils.createTestData()
-            })
+    override fun initview() {
+        rv_item?.layoutManager = LinearLayoutManager(context)
+        if (itemItemAdapter == null) {
+            itemItemAdapter = PageOneItemAdapter(this)
         }
+        rv_item?.adapter = itemItemAdapter
+    }
+
+    override fun loadmore() {
+        viewmodel?.alItem?.observe(viewLifecycleOwner, {
+            itemItemAdapter?.mAlItem = Utils.createTestData()
+        })
     }
 
     override fun onTopBackClick() {

@@ -27,14 +27,19 @@ class HomeFragment : Fragment() {
 
     override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
         super.onViewCreated(view, savedInstanceState)
+        initView()
+    }
+
+    private fun initView() {
         val fragments = arrayListOf<Fragment>()
         fragments.add(PageOneFragment.newInstance())
         fragments.add(PageTwoFragment.newInstance())
 
         val pagerAdapter = FragmentPagerAdapter(childFragmentManager, lifecycle, fragments)
-        vp.adapter = pagerAdapter
-        TabLayoutMediator(tl_tab, vp) { tab, position -> tab.text = getString(R.string.page_title, position+1) }.attach()
-
+        vp?.adapter = pagerAdapter
+        TabLayoutMediator(tl_tab, vp) { tab, position ->
+            tab.text = getString(R.string.page_title, position + 1)
+        }.attach()
     }
 
 }

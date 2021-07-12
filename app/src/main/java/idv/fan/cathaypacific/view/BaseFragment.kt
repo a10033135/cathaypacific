@@ -1,0 +1,16 @@
+package idv.fan.cathaypacific.view
+
+import android.os.Bundle
+import android.view.View
+import androidx.fragment.app.Fragment
+
+abstract class BaseFragment : Fragment() {
+    abstract fun initview()
+    abstract fun loadmore()
+
+    override fun onViewCreated(view: View, savedInstanceState: Bundle?) {
+        super.onViewCreated(view, savedInstanceState)
+        initview()
+        loadmore()
+    }
+}
